@@ -34,7 +34,9 @@ public class StudentController {
 	}
 	
 	@RequestMapping("new")
-	public String newStudent() {
+	public String newStudent(Model model) {
+		
+		model.addAttribute("student", new Student());
 		
 		return "StudentNew";
 	}
