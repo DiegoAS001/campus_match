@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<h1>Curso CRUD</h1>
+	
+	<a th:href="@{new}">Novo Curso</a>
+	
+	<table border="1">
+   		<thead>
+   			<tr>
+   				<th>Id</th>
+   				<th>Área Conhecimento</th>
+   				<th>Nome</th>
+   				<th>Periodo</th>
+   				<th>Duração (semestres)</th>
+   				<th>Modalidade</th>
+   				<th>Delete</th>
+   			</tr>
+   		</thead>
+   		<tbody>
+   			<tr th:each="curso : ${cursos}">
+   				<td><a th:text="${curso.id}" th:href="@{editCurso/{id}(id=${curso.id})}"></a></td>
+   				<td th:text="${curso.areaConhecimento.areaConhecimento}"></td>
+   				<td th:text="${curso.nome}"></td>
+   				<td th:text="${curso.periodo.periodo}"></td>
+   				<td th:text="${curso.duracao}"></td>
+   				<td th:text="${curso.modalidade.modalidade}"></td>
+   				<td><a th:href="@{deleteCurso/{id}(id=${curso.id})}">X</a></td>
+   			</tr>
+   		</tbody>
+   	</table>
+	
+</body>
+</html>

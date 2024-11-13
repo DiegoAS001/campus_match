@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Novo Curso</title>
+</head>
+<body>
+	<form method="post" th:action="@{/cursos/save}" th:object="${curso}">
+		<div>
+			<label for="id">Id</label>
+			<input type="number" name="id" th:field="*{id}" readonly>
+		</div>
+		<div>
+			<label for="nome">Nome</label>
+			<input type="text" name="nome" th:field="*{nome}">
+		</div>
+		<div>
+			<label for="periodo">Período:</label>
+			<select name="periodo">
+				<option th:each="periodo : ${allPeriodos}"
+					th:value="${periodo}" th:text="${periodo.periodo}"
+					th:field="*{periodo}"></option>
+			</select>
+		</div>
+		<div>
+			<label for="duracao">Duração (semestres):</label>
+			<input type="number" name="duracao" th:field="*{duracao}">
+		</div>
+		<div>
+			<label for="modalidade">Modalidade:</label>
+			<select name="modalidade">
+				<option th:each="modalidade : ${allModalidades}"
+					th:value="${modalidade}" th:text="${modalidade.modalidade}"
+					th:field="*{modalidade}"></option>
+			</select>
+		</div>
+		<div>
+			<label for="areaConhecimento">Área do Conhecimento:</label>
+			<select name="areaConhecimento">
+				<option th:each="areaConhecimento : ${allAreasConhecimento}"
+					th:value="${areaConhecimento}" th:text="${areaConhecimento.areaConhecimento}"
+					th:field="*{areaConhecimento}"></option>
+			</select>
+		</div>
+		<div>
+			<button type="submit">Submit</button>
+		</div>
+	</form>
+</body>
+</html>

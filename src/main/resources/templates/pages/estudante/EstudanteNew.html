@@ -3,10 +3,10 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Novo Estudante</title>
 </head>
 <body>
-	<form method="post" th:action="@{/students/save}" th:object="${student}">
+	<form method="post" th:action="@{/estudantes/save}" th:object="${estudante}">
 		<div>
 			<label for="id">Id</label>
 			<input type="number" name="id" th:field="*{id}" readonly>
@@ -16,20 +16,20 @@
 			<input type="text" name="email" th:field="*{email}">
 		</div>
 		<div>
-			<label for="password">Password</label>
-			<input type="text" name="password" th:field="*{password}">
+			<label for="senha">Senha</label>
+			<input type="text" name="senha" th:field="*{senha}">
 		</div>
 		<div>
 			<label for="cep">CEP</label>
 			<input type="text" name="cep" th:field="*{cep}">
 		</div>
 		<div>
-			<label for="name">Name</label>
-			<input type="text" name="name" th:field="*{name}">
+			<label for="nome">Nome</label>
+			<input type="text" name="nome" th:field="*{nome}">
 		</div>
 		<div>
-			<label for="birthDate">Birth Date</label>
-			<input type="text" name="birthDate" th:field="*{birthDate}">
+			<label for="dataNascimento">Data Nascimento</label>
+			<input type="date" name="dataNascimento" th:field="*{dataNascimento}">
 		</div>
 		<div>
 			<button type="submit">Submit</button>

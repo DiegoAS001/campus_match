@@ -2,23 +2,28 @@ package br.edu.ifsp.campus_match.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-public class Student {
+@Table(name = "estudante")
+public class Estudante {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String email;
-	private String password;
+	private String senha;
 	private String cep;
-	private String name;
-	private LocalDate birthDate;
+	private String nome;
+	
+	@Column(name="data_nascimento")
+	private LocalDate dataNascimento;
 	
 	public Long getId() {
 		return id;
@@ -32,11 +37,11 @@ public class Student {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPassword() {
-		return password;
+	public String getSenha() {
+		return senha;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	public String getCep() {
 		return cep;
@@ -44,18 +49,20 @@ public class Student {
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-	public LocalDate getBirthDate() {
-		return birthDate;
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
 	}
-	public void setBirthDate(LocalDate birthDate) {
-		this.birthDate = birthDate;
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
+
+	
 	
 	
 	

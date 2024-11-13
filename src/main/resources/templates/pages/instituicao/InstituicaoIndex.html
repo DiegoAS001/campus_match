@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<h1>Instituição CRUD</h1>
+	
+	<a th:href="@{new}">Nova Instituição</a>
+	
+	<table border="1">
+   		<thead>
+   			<tr>
+   				<th>Id</th>
+   				<th>Nome</th>
+   				<th>E-mail</th>
+   				<th>Senha</th>
+   				<th>CEP</th>
+   				<th>Nº Mec</th>
+   				<th>Campus</th>
+   				<th>Pública</th>
+   				<th>Delete</th>
+   			</tr>
+   		</thead>
+   		<tbody>
+   			<tr th:each="instituicao : ${instituicoes}">
+   				<td><a th:text="${instituicao.id}" th:href="@{editInstituicao/{id}(id=${instituicao.id})}"></a></td>
+   				<td th:text="${instituicao.nome}"></td>
+   				<td th:text="${instituicao.email}"></td>
+   				<td th:text="${instituicao.senha}"></td>
+   				<td th:text="${instituicao.cep}"></td>
+   				<td th:text="${instituicao.numeroMec}"></td>
+   				<td th:text="${instituicao.campus}"></td>
+   				<td th:text="${instituicao.publica}"></td>
+   				<td><a th:href="@{deleteInstituicao/{id}(id=${instituicao.id})}">X</a></td>
+   			</tr>
+   		</tbody>
+   	</table>
+	
+</body>
+</html>
