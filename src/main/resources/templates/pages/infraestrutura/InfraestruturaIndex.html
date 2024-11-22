@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<h1>Infraestrutura CRUD</h1>
+	
+	<a th:href="@{new}">Nova Infraestrutura</a>
+	
+	<table border="1">
+   		<thead>
+   			<tr>
+   				<th>Id</th>
+   				<th>Descrição</th>
+   				<th>Delete</th>
+   			</tr>
+   		</thead>
+   		<tbody>
+   			<tr th:each="infraestrutura : ${infraestruturas}">
+   				<td><a th:text="${infraestrutura.id}" th:href="@{editInfraestrutura/{id}(id=${infraestrutura.id})}"></a></td>
+   				<td th:text="${infraestrutura.descricao}"></td>
+   				<td><a th:href="@{deleteInfraestrutura/{id}(id=${infraestrutura.id})}">Deletar</a></td>
+   			</tr>
+   		</tbody>
+   	</table>
+	
+</body>
+</html>
