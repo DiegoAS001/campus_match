@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 @Entity
@@ -44,6 +45,11 @@ public class Publicacao {
 
 	public void setDataPublicacao(Date dataPublicacao) {
 		this.dataPublicacao = dataPublicacao;
+	}
+	
+	@PrePersist
+	void criadoEm() {
+		dataPublicacao = new Date();
 	}
 	
 	

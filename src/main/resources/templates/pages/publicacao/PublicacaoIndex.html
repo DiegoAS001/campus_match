@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<h1>Publicação CRUD</h1>
+	
+	<a th:href="@{new}">Nova Postagem</a>
+	
+	<table border="1">
+   		<thead>
+   			<tr>
+   				<th>Id</th>
+   				<th>Post</th>
+   				<th>Data Publicada</th>
+   				<th>Delete</th>
+   			</tr>
+   		</thead>
+   		<tbody>
+   			<tr th:each="publicacao : ${publicacoes}">
+   				<td><a th:text="${publicacao.id}" th:href="@{editPublicacao/{id}(id=${publicacao.id})}"></a></td>
+   				<td th:text="${publicacao.descricao}"></td>
+   				<td th:text="${publicacao.dataPublicacao}"></td>
+   				<td><a th:href="@{deletePublicacao/{id}(id=${publicacao.id})}">Deletar</a></td>
+   			</tr>
+   		</tbody>
+   	</table>
+	
+</body>
+</html>
