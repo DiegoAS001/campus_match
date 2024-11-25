@@ -68,7 +68,7 @@ create table if not exists infraestrutura(
 create table if not exists publicacao(
 	id bigint not null auto_increment,
     descricao varchar(100) not null,
-    data_publicacao date not null,
+    data_publicacao timestamp not null,
     constraint pk_publicacao primary key (id)
 );
 
